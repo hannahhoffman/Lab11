@@ -1,7 +1,7 @@
 AutomatedMakefile = am
 CC = g++
 
-FILES = DrawBST.o
+FILES = DrawBST.o 
 EXECUTABLE = bst.exe
 
 PROJECT_PATH = $(PROJECT_DIR)
