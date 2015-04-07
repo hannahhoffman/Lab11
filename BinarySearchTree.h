@@ -124,12 +124,12 @@ TreeNode<T>* BinarySearchTree<T>::removeNode(TreeNode<T>* tNode)
 template < class T >
 T* BinarySearchTree<T>::findLeftMost(TreeNode<T>* tNode)
 {
-   //DO THIS (use a while loop)
+	while (tNode->getLeft() != NULL)
+	{
+		tNode = tNode->getLeft();
+	}
 
-
-
-
-
+	return tNode->getItem();
 }
 
 template < class T >
