@@ -60,19 +60,35 @@ class BinarySearchTree : public Drawable
 template < class T >
 void BinarySearchTree<T>::remove(String* sk)
 {
-   //DO THIS
-
-
-
+    root = removeItem(root, sk);
 }
 
 template < class T >
 TreeNode<T>* BinarySearchTree<T>::removeItem(TreeNode<T>* tNode, String* sk)
 {
-   //DO THIS
-
-
-
+   if(tNode == NULL)
+   {
+	   return tNode;
+   }
+   T* node_item = tNode->getItem();
+   int comp = (*compare_keys) (sk, node_item);
+   if(comp == 0)
+   {
+		sze--;
+		return removeNode(tNode);
+   }
+   else if(comp < 0)
+   {
+	   TreeNode<T>* sub = removeItem(tNode->getLeft(), sk);
+	   tNode->setLeft(sub);
+	   return tNode;
+   }
+   else
+   {
+	   TreeNode<T>* sub = removeItem(tNode->getRight(), sk);
+	   tNode->setRight(sub);
+	   return tNode;
+   }
 }
 
 template < class T >
@@ -97,12 +113,11 @@ TreeNode<T>* BinarySearchTree<T>::removeNode(TreeNode<T>* tNode)
    }
    else 
    {
-      //DO THIS
-
-
-
-
-
+      T* item = findLeftMost(tNode->getRight());
+	  tNode->setItem(item);
+	  TreeNode<T>* sub = removeLeftMost(tNode->getRight());
+	  tNode->setRight(sub);
+	  return tNode;
    }
 }
 
@@ -131,8 +146,6 @@ TreeNode<T>* BinarySearchTree<T>::removeLeftMost(TreeNode<T>* tNode)
 template < class T >
 T** BinarySearchTree<T>::toArray()
 {
-   //DO THIS
-
 
 
 }
@@ -140,7 +153,7 @@ T** BinarySearchTree<T>::toArray()
 template < class T >
 T** BinarySearchTree<T>::treeSort(T** items, int num_itemss, int (*comp_items) (T* item_1, T* item_2), int (*comp_keys) (String* key, T* item))
 {
-   //DO THIS
+   
 
 
 
