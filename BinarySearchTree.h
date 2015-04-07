@@ -135,18 +135,22 @@ T* BinarySearchTree<T>::findLeftMost(TreeNode<T>* tNode)
 template < class T >
 TreeNode<T>* BinarySearchTree<T>::removeLeftMost(TreeNode<T>* tNode)
 {
-   //DO THIS (recursion)
-
-
-
-
-
+   if(tNode->getLeft() == NULL)
+   {
+	   return tNode->getRight();
+   }
+   else
+   {
+	   TreeNode<T>* sub = removeLeftMost(tNode->getLeft());
+	   tNode->setLeft(sub);
+	   retrun->tNode;
+   }
 }
 
 template < class T >
 T** BinarySearchTree<T>::toArray()
 {
-
+	
 
 }
 
