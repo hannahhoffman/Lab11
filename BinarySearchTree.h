@@ -150,8 +150,16 @@ TreeNode<T>* BinarySearchTree<T>::removeLeftMost(TreeNode<T>* tNode)
 template < class T >
 T** BinarySearchTree<T>::toArray()
 {
-	
-
+	T** items = new T*[sze];
+	BinaryTreeIterator<T>* iter = iterator();
+	iter->setInorder();
+	int i = 0;
+	while(iter->hasNext())
+	{
+		items[i] = iter->next();
+		i++;
+	}
+	return items;
 }
 
 template < class T >

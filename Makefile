@@ -1,7 +1,7 @@
 AutomatedMakefile = am
 CC = g++
 
-FILES = DrawBST.cpp	BSTDriver.o
+FILES = DrawBST.o BSTDriver.o
 EXECUTABLE = bst.exe
 
 PROJECT_PATH = $(PROJECT_DIR)
