@@ -165,9 +165,19 @@ T** BinarySearchTree<T>::toArray()
 template < class T >
 T** BinarySearchTree<T>::treeSort(T** items, int num_itemss, int (*comp_items) (T* item_1, T* item_2), int (*comp_keys) (String* key, T* item))
 {
-   
+   //accepts the T** items and returns the sorted T** items
 
+	BinarySearchTree<T>* tree = new BinarySearchTree < T > (comp_items, comp_keys);
 
+	for (int i = 0; i < num_itemss; i++)
+	{
+		T* itm = items[i];
+		tree->insert(itm);
+	}
+
+	T** sorted = tree->toArray();
+	delete tree;
+	return sorted;
 
 }
 
